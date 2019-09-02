@@ -117,8 +117,26 @@ export default (app: any) => {
     inventory.settings.language = user.language;
     await write(user.userId, inventory);
 
+    const libraries = [];
+    inventory.tools.forEach((tool: Tool) =>
+      libraries.push({ id: tool.libraryId, name: tool.libraryName })
+    );
+
+    const distinctLibraries = [];
+    const map = new Map();
+    for (const item of libraries) {
+      if (!map.has(item.id)) {
+        map.set(item.id, true);
+        distinctLibraries.push({
+          id: item.id,
+          name: item.name
+        });
+      }
+    }
+
     res.json({
       inventory,
+      libraries: distinctLibraries,
       user
     });
   });

@@ -1,4 +1,7 @@
 export default {
+  library: {
+    all: "All libraries"
+  },
   noTools:
     "You don't see any tools? Please create a Fusion Cloud tool library.",
   download: {

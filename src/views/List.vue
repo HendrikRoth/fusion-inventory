@@ -15,6 +15,14 @@
             </b-input>
 
             <b-field>
+                <b-select v-model="library">
+                    <option v-for="lib in libraries" :key="lib.id"
+                    :value="lib.id">{{ lib.name }}</option>
+                    <option value="ALL">{{ $t('library.all') }}</option>
+                </b-select>
+            </b-field>
+
+            <b-field>
                 <b-dropdown hoverable aria-role="list">
                     <button class="button" slot="trigger">
                         <span>{{ $t('download.button') }}</span>
@@ -93,18 +101,34 @@ export default class List extends Vue {
     @State("user") user!: any;
     @State("tools") tools!: any[];
     @State("settings") settings!: any;
+    @State("libraries") libraries!: any[];
     @Mutation("updateTools") updateTools!: Function;
     @Action("update") update!: Function;
 
     search: string = "";
+    library: string = "ALL";
 
     get toolList() {
         if (this.search.length === 0) {
-            return this.tools;
+            if (this.library !== "ALL") {
+                return this.tools
+                        .filter((tool: any) => tool.libraryId === this.library);
+            } else {
+                return this.tools;
+            }
         }
         const regexp = new RegExp(this.search, "i");
-        return this.tools.filter((tool: any) =>
-            tool.name.search(regexp) > -1 || tool.tuid.search(regexp) > -1)
+
+        if (this.library !== "ALL") {
+            return this.tools
+                .filter((tool: any) => tool.libraryId === this.library)
+                .filter((tool: any) =>
+                tool.name.search(regexp) > -1 || tool.tuid.search(regexp) > -1);
+        } else {
+            return this.tools
+                .filter((tool: any) =>
+                tool.name.search(regexp) > -1 || tool.tuid.search(regexp) > -1);
+        }
     }
 
     editModal(tool: any) {

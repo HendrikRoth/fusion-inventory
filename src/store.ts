@@ -9,13 +9,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    loading: false,
+    loading: true,
     tools: [],
     locale: "en",
     user: {},
-    settings: {}
+    settings: {},
+    libraries: []
   },
   mutations: {
+    setLibraries(state, libraries) {
+      state.libraries = libraries;
+    },
     setLoading(state) {
       state.loading = true;
     },
@@ -66,6 +70,7 @@ export default new Vuex.Store({
           })
         );
         commit("setSettings", result.data.inventory.settings);
+        commit("setLibraries", result.data.libraries);
         commit("unsetLoading");
       } catch (_) {
         location.href = "/login";

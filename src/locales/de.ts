@@ -1,4 +1,7 @@
 export default {
+  library: {
+    all: "Alle Bibliotheken"
+  },
   noTools:
     "Es werden keine Fräser angezeigt? Bitte richte eine Fusion Cloud Tool Library an.",
   download: {
