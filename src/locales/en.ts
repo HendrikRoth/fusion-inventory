@@ -1,4 +1,6 @@
 export default {
+  noTools:
+    "You don't see any tools? Please create a Fusion Cloud tool library.",
   download: {
     button: "Download",
     qrlist: "QR-Code list",

@@ -16,7 +16,7 @@ This is an early alpha release, please don't use it in production yet.
 - Rating of your tools
 - QR-Scanning for adding or removing the tool amount
 - Internationalization (de and en at the moment)
-- Defining/addding own fields for your tools
+- Defining/adding own fields for your tools
 
 ## Todo
 

@@ -20,11 +20,11 @@
             <b-table-column :label="$t('fusionColumns.informations')"
                 field="name" sortable :class="state(props.row)">
                 <a @click="toggle(props.row)"><b>{{ props.row.name }}</b></a>
-                <p class="is-size-7">
+                <a @click="toggle(props.row)" class="is-size-7">
                 {{ $t(`extraColumns.tuid`) }}: {{ props.row.tuid }}
-                </p>
-                <p class="is-size-7">{{ $t('fusionColumns.productType') }}: {{
-                $t(`productType.${props.row.productType}`) }}</p>
+                </a>
+                <a @click="toggle(props.row)" class="is-size-7">{{ $t('fusionColumns.productType') }}: {{
+                $t(`productType.${props.row.productType}`) }}</a>
             </b-table-column>
 
             <b-table-column v-for="(c, i) in settings.fusionColumns"

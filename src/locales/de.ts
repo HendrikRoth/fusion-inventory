@@ -1,4 +1,6 @@
 export default {
+  noTools:
+    "Es werden keine Fräser angezeigt? Bitte richte eine Fusion Cloud Tool Library an.",
   download: {
     button: "Download",
     qrlist: "QR-Code Liste",
@@ -50,10 +52,10 @@ export default {
   },
   productType: {
     holder: "Werkzeughalter",
-    "flat end mill": "Schaftfraeser",
-    "chamfer mill": "Fasenfraeser",
+    "flat end mill": "Schaftfräser",
+    "chamfer mill": "Fasenfräser",
     drill: "Bohrer",
-    "ball end mill": "Kugelkopffraeser"
+    "ball end mill": "Kugelkopffräser"
   },
   fusionColumns: {
     nc: "T.Nr.",

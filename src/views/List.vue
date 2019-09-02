@@ -65,7 +65,13 @@
             :user="user"
             :editModal="editModal"
             :update="update"
+            v-if="toolList.length > 0"
         />
+        <p v-else>
+            <a target="_blank"
+               href="https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-install-a-cloud-tool-library-in-Fusion-360.html">
+                {{ $t('noTools') }}</a>
+        </p>
       </div>
   </div>
 </template>
