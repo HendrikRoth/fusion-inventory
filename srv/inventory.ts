@@ -76,14 +76,17 @@ export class Inventory implements IInventory {
     } else {
       this.settings = {
         fusionColumns: Object.assign(
+          [],
           DEFAULT_FUSION_COLUMNS,
           params.settings.fusionColumns
         ),
         extraColumns: Object.assign(
+          [],
           DEFAULT_EXTRA_COLUMNS,
           params.settings.extraColumns
         ),
         userColumns: Object.assign(
+          [],
           DEFAULT_USER_COLUMNS,
           params.settings.userColumns
         ),
