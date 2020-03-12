@@ -21,7 +21,13 @@ const DEFAULT_FUSION_COLUMNS = [
 const DEFAULT_EXTRA_COLUMNS = [
   { path: "tuid", visible: false, numeric: false },
   { path: "rating", visible: true, numeric: false },
-  { path: "amount", visible: true, numeric: false }
+  { path: "amount", visible: true, numeric: false },
+  { path: "pocket", visible: false, numeric: true },
+  { path: "x_offset", visible: false, numeric: true },
+  { path: "y_offset", visible: false, numeric: true },
+  { path: "z_offset", visible: false, numeric: true },
+  { path: "a_offset", visible: false, numeric: true },
+  { path: "b_offset", visible: false, numeric: true }
 ];
 
 const DEFAULT_USER_COLUMNS = [];

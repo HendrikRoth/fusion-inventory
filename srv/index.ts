@@ -2,12 +2,16 @@ import config from "./config";
 import * as express from "express";
 // @ts-ignore
 import session from "express-session";
+import multer from "multer";
 import { resolve } from "path";
 import { read, write } from "./files";
 import { forgeLogin, forgeMiddleware, getLibrary, getLibraries } from "./forge";
 import { Tool } from "./tool";
 import { Inventory } from "./inventory";
 import { linuxcnc } from "./linuxcnc";
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 export default (app: any) => {
   app.use(express.json());
@@ -169,6 +173,10 @@ export default (app: any) => {
   });
 
   app.get("/download/linuxcnc.tools", forgeMiddleware, linuxcnc);
+
+  app.post("/match/linuxcnc/:userId/:guid", upload.single("file"), async (req, res) => {
+    // TODO
+  });
 
   app.get("/callback", forgeMiddleware, (_, res) => {
     res.redirect("/");
